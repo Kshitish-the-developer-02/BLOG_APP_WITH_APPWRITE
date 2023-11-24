@@ -1,0 +1,20 @@
+
+#one {
+    font-weight: normal;
+}
+
+#two {
+    font-weight: bold;
+}
+
+#three {
+    font-weight: bolder;
+}
+
+#four {
+    font-weight: lighter;
+}
+
+h2 {
+    font-weight: 900;
+} 

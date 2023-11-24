@@ -1,0 +1,20 @@
+h1 {
+    text-decoration: dashed underline rgb(183, 49, 49);
+}
+
+h2 {
+    text-decoration: wavy overline underline rgb(221, 140, 35);
+}
+
+h3 {
+    text-decoration: line-through rgb(27, 170, 189);
+
+}
+
+p {
+    text-decoration: none;
+}
+
+a{
+    text-align: none;
+}

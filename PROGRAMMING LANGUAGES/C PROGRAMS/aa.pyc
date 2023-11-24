@@ -1,0 +1,40 @@
+
+# time between arrivals distribution
+time_between_arrivals = [1.0, 1.5, 2.0, 2.5, 3.0]
+freq_distribution = [18, 15, 36, 19, 12]
+
+# cumulative frequency distribution
+cumulative_freq = [sum(freq_distribution[:i+1]) for i in range(len(freq_distribution))]
+
+# simulate waiting times for next 10 patients
+num_simulations = 10000
+total_waiting_time = 0
+
+for _ in range(num_simulations):
+    current_time = 0
+    waiting_time = 0
+    for i in range(10):
+        # generate random number between 0 and 1
+        rand_num = random.random()
+        
+        # determine time between arrivals
+        for j in range(len(cumulative_freq)):
+            if rand_num <= cumulative_freq[j]/sum(freq_distribution):
+                time_between = time_between_arrivals[j]
+                break
+        
+        # calculate arrival time
+        arrival_time = current_time + time_between
+        
+        # calculate waiting time
+        waiting_time += max(0, arrival_time - current_time - 10) # assuming 10 minutes for each patient
+        
+        # update current time
+        current_time = arrival_time
+    
+    total_waiting_time += waiting_time/10
+
+# calculate average waiting time
+avg_waiting_time = total_waiting_time/num_simulations
+
+print("Average waiting time for next 10 patients:", avg_waiting_time, "minutes")
